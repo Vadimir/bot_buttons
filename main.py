@@ -34,9 +34,11 @@ def start(m, res=False):
     markup.add(item3)
     markup.row('Факт о Лосе', 'Факт о Бобре')
     bot.send_message(m.chat.id, 'Про какого животного хочешь узнать? Нажми: \nЛОСЬ, чтобы узнать факт о лосе'
-                                '\nБОБР, чтобы узнать факт о бобре', reply_markup=markup)
+                                   '\nБОБР, чтобы узнать факт о бобре', reply_markup=markup)
 
-
+@bot.message_handler(content_types=["image"])
+def handle_image(message):
+    bot.send_message(message.chat.id, 'Классное фото!')
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
